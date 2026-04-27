@@ -1,2 +1,57 @@
 Lab 02 - Basic Routing 
 objective
+The objective of this lab was to simulate a real office 
+network environment which included 2 departments — 
+Network Operations and Finance. These departments are 
+separated by a router between them.
+
+This setup simulates what is logically done in companies 
+where departments are separated for security purposes, 
+but still need to communicate with each other through 
+a controlled path — the router.
+
+The success of the lab was confirmed after PC1 on 
+Network 1 successfully pinged PC3 on Network 2.
+
+### Network 1 — Network Operations
+| Device | Interface | IP Address | Subnet Mask| Gateway      |
+|--------|-----------|------------|------------|--------------|
+| Router |gig0/1     |192.168.10.1|255.255.255.0| N/A         |
+| PC0    | fa0/1     |192.168.10.10|255.255.255.0|192.168.10.1|
+| PC1    | fa0/2     |192.168.10.11|255.255.255.0|192.168.10.1|
+
+### Network 2 — Finance
+| Device | Interface | IP Address | Subnet Mask   | Gateway      |
+|--------|-----------|------------|---------------|--------------|
+| Router | gig0/2    |192.168.20.1|255.255.255.0  | N/A          |
+| PC3    | fa0/1     |192.168.20.10|255.255.255.0 |192.168.20.1  |
+| PC4    | fa0/2     |192.168.20.11|255.255.255.0|192.168.20.1   |
+
+## Router Configuration
+
+i configured one interface gig0/1 to be the network operations and assigned it an ip address of 
+192.168.10.1 
+
+### Interface Gig0/1 — Network Operations
+commands used:
+enable
+configure terminal
+interface gig0/1
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+exit
+
+### Interface Gig0/2 — Finance
+
+i configured one interface gig0/2 to be the finance  and assigned it an ip address of 
+192.168.20.1 
+commands used:
+enable
+configure terminal
+interface gig0/2
+ip address 192.168.20.1 255.255.255.0
+no shutdown
+exit
+
+By default, all router interfaces are administratively down. The no shutdown command brings the interface up and makes it active.
+Without it, the interface will not pass any traffic regardless of how correctly it is configured.
