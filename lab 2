@@ -12,6 +12,7 @@ a controlled path — the router.
 
 The success of the lab was confirmed after PC1 on 
 Network 1 successfully pinged PC3 on Network 2.
+TOPOLOGY
 
 ### Network 1 — Network Operations
 | Device | Interface | IP Address | Subnet Mask| Gateway      |
