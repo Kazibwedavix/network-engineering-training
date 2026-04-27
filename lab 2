@@ -56,3 +56,21 @@ exit
 
 By default, all router interfaces are administratively down. The no shutdown command brings the interface up and makes it active.
 Without it, the interface will not pass any traffic regardless of how correctly it is configured.
+
+## Fault Encountered
+ping failure between networks i realised that pc1 in the network operation was not pinging the pc3 in finance
+### How I Discovered It
+I checked the ips for the computers from both networks and where all okay and also using 
+the show running-config on the router all inerfaces where up up state which was fine .
+so i moved onto the physical layer and checked the cable types which i found mismatchig 
+on the router i had the gig0/1 and gig0/2 yet on the switch i had fa0/1 and fa0/2 so it became 
+a challenge for packet movement
+
+## The Root Cause 
+checked the cable types which i found mismatchig 
+on the router i had the gig0/1 and gig0/2 yet on the switch i had fa0/1 and fa0/2
+## How I Fixed It
+so i changed the interface to use gigabitethernet all through forexample on the network operation i used gig0/1
+and on the finance i used gig0/2
+### Lesson Learned
+always checking the physical layer is crucial coz need to understand how the cables are and which types are used for this case 
